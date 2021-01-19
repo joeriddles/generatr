@@ -1,6 +1,7 @@
 from __future__ import annotations
 import os
 import random
+import re
 from typing import Tuple
 
 TOP_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
@@ -22,7 +23,7 @@ def get_random_word(words: list[str]) -> str:
     return random.choice(words)
 
 def generate_sass_word(word: str) -> str:
-    if word.endswith('er'):
+    while word.endswith(('ar', 'er', 'ir', 'or', 'ur')):
         word = word[:-2] + 'r'
     return word
 
