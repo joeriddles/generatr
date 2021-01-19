@@ -4,9 +4,9 @@ import typer
 
 from generatr.generatr import generate_sass_url, generate_sass_word, get_random_word, read_er_words
 
-app = typer.Typer()
+typer_app = typer.Typer()
 
-@app.command()
+@typer_app.command()
 def word():
     words = read_er_words()
     word = get_random_word(words)
@@ -16,4 +16,4 @@ def word():
 
 
 if __name__ == '__main__':
-    app()
+    typer_app()
