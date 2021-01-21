@@ -1,15 +1,32 @@
-a:link {
+/* global styles */
+a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-a:visited {
-  text-decoration: none;
+body {
+  background-color: #F2E7D5;
 }
 
-a:hover {
-  text-decoration: underline;
+.header img {
+  border-radius: 20%;
 }
 
-a:active {
-  text-decoration: underline;
+.sass-container {
+  padding-top: 25vh;
+}
+
+.reload-btn {
+  background-color: #0084FF;
+  border: solid 4px #0084FF;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 0px #aca7a7;
+  border-top: solid 2px #0084FF;
+  color: #ffffff;
+  display: inline-block;
+  margin: 8px;
+}
+
+.reload-btn:active {
+  box-shadow: 0px 0px 1px 0px #aca7a7;
+  transform: scale(0.98);
 }
