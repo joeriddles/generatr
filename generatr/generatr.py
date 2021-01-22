@@ -4,7 +4,10 @@ from typing import Tuple
 
 from generatr.utils.files import ALL_WORDS_PATH, SASS_WORDS_PATH, read_file, write_file, file_exists
 
+
 SASS_ENDINGS = ('ar', 'er', 'ir', 'or', 'ur')
+GOOGLE_URL_PREFIX = 'https://domains.google.com/registrar/search?searchTerm='
+
 
 class Generatr:
     sass_words: list[str] = []
@@ -28,11 +31,13 @@ class Generatr:
         sass_url = 'https://' + sass_word + '.io'
         return sass_url
 
-    def generate(self) -> Tuple[str, str]:
+    def generate(self) -> Tuple[str, str, str]:
+        """Return generated sass word, url, and google domains url"""
         word = self.get_random_word(self.sass_words)
         sass_word = self.generate_sass_word(word)
         sass_url = self.generate_sass_url(sass_word)
-        return sass_word, sass_url
+        google_sass_url = GOOGLE_URL_PREFIX + sass_word + '.io'
+        return sass_word, sass_url, google_sass_url
 
     def _generate_sass_file(self) -> list[str]:
         all_words: list[str] = []

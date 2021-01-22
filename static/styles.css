@@ -23,7 +23,9 @@ body {
   border-top: solid 2px #0084FF;
   color: #ffffff;
   display: inline-block;
+  font-weight: bold;
   margin: 8px;
+  padding: 0 4px;
 }
 
 .reload-btn:active {

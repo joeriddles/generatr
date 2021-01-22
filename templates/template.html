@@ -22,21 +22,26 @@
     </div>
     <div class="container-fluid" style="text-align: center;">
         <div class="sass-container" class="align-middle">
-            <h1>{{ sass_word }}</h1>
+            <h1 id="sass-word">
+                {{ sass_word }}
+            </h1>
             <a href="{{ sass_url }}" target="_blank" >
-                <b>{{ sass_url }}</b>
+                <b>
+                    <span id="sass-url">
+                        {{ sass_url }}
+                    </span>
+                </b>
             </a>
             <br>
-            <a href="{{ google_sass_url }}" target="_blank" >
+            <a id="google-sass-url" href="{{ google_sass_url }}" target="_blank" >
                 <b>Buy this domain 💸</b>
             </a>
             <br>
-            <a href=".">
-                <span class="reload-btn">Generate</span>
-            </a>
+            <button id="reload-btn" class="reload-btn" onclick="get_word()">Generate</button>
         </div>
     </div>
 
+    <script src="{{ url_for('static', filename='generatr.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
