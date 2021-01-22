@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 
 TOP_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..'))
