@@ -5,12 +5,12 @@ function get_word() {
         .then(jsonResponse => {
             sass_word = jsonResponse.sass_word;
             sass_url = jsonResponse.sass_url;
-            google_sass_url = jsonResponse.google_sass_url;
+            purchase_sass_url = jsonResponse.purchase_sass_url;
             sass_word_elem = document.getElementById("sass-word");
             sass_word_elem.innerHTML = sass_word;
             sass_url_elem = document.getElementById("sass-url");
             sass_url_elem.innerHTML = sass_url;
-            google_sass_url_elem = document.getElementById("google-sass-url");
-            google_sass_url_elem.href = google_sass_url
+            purchase_sass_url = document.getElementById("purchase-sass-url");
+            purchase_sass_url.href = purchase_sass_url
         });
 }

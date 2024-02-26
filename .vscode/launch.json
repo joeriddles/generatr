@@ -6,13 +6,13 @@
   "configurations": [
     {
       "name": "Python: Generatr",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "generatr"
     },
     {
       "name": "Python: Flask",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "flask",
       "env": {
