@@ -11,3 +11,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=app.py FLASK_ENV=development FLASK_DEBUG=0 python -m flask run --no-debugger --no-reload
 ```
+
+### Ideas
+
+Ideas for future features:
+- Display history of generated names
+- Multiple domain registrar links
+- Show price of domain
+- Monetization links?
