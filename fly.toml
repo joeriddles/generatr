@@ -28,4 +28,4 @@ primary_region = 'sea'
 
 [[statics]]
   guest_path = "/workspace/static"
-  url_prefix = "/"
+  url_prefix = "/static/"
