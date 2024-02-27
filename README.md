@@ -1,4 +1,4 @@
-# generat<i>r</i>
+# generat<i>r</i> | [generatr.fly.dev](https://generatr.fly.dev/)
 
 Generate the name for your next SaaS company or product! 💫
 
