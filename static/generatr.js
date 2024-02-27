@@ -1,5 +1,5 @@
 function get_word() {
-    const url = "./api/word";
+    const url = "/api/word";
     fetch(url)
         .then(response => response.json())
         .then(jsonResponse => {
