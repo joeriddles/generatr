@@ -18,9 +18,12 @@
       "env": {
         "FLASK_APP": "app.py",
         "FLASK_ENV": "development",
-        "FLASK_DEBUG": "0"
+        "FLASK_DEBUG": "0",
+        // custom
+        "FLASK_DOMAIN": "localhost:5000",
+        "FLASK_FORCE_HTTPS": "false",
       },
-      "args": ["run", "--no-debugger", "--no-reload"],
+      "args": ["run"],
       "jinja": true
     }
   ]
