@@ -12,7 +12,7 @@ DOMAIN_REGISTRAR_URL_PREFIX = 'https://porkbun.com/checkout/search?q='
 class Generatr:
     sass_words: list[str] = []
 
-    def __init__(self, regenerate: bool = True):
+    def __init__(self, regenerate: bool = False):  # TODO: revert to True
         if regenerate or not file_exists(SASS_WORDS_PATH):
             sass_words = self._generate_sass_file()
         else:
