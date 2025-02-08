@@ -3,14 +3,10 @@ function get_word() {
     fetch(url)
         .then(response => response.json())
         .then(jsonResponse => {
-            sass_word = jsonResponse.sass_word;
-            sass_url = jsonResponse.sass_url;
-            purchase_sass_url = jsonResponse.purchase_sass_url;
-            sass_word_elem = document.getElementById("sass-word");
-            sass_word_elem.innerHTML = sass_word;
-            sass_url_elem = document.getElementById("sass-url");
-            sass_url_elem.innerHTML = sass_url;
-            purchase_sass_url = document.getElementById("purchase-sass-url");
-            purchase_sass_url.href = purchase_sass_url
+            const { sass_word, sass_url, purchase_sass_url } = jsonResponse;
+            document.getElementById("sass-word").innerHTML = sass_word;
+            document.getElementById("sass-url").href = sass_url;
+            document.getElementById("sass-url-value").innerHTML = sass_url;
+            document.getElementById("purchase-sass-url").href = purchase_sass_url
         });
 }
