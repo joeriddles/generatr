@@ -1,8 +1,9 @@
 from __future__ import annotations
+
 import os
 
-from flask import Flask, render_template
 import flask.helpers
+from flask import Flask, render_template
 
 from generatr.generatr import Generatr
 
@@ -28,20 +29,35 @@ if not app.debug:
 
     app.jinja_env.globals.update(url_for=absolute_url_for)  # type: ignore
 
-@app.route('/')
+
+@app.route("/")
 def main():
-    sass_word, sass_url, purchase_sass_url = generatr.generate()
-    render_result = render_template('template.html', sass_word=sass_word, sass_url=sass_url, purchase_sass_url=purchase_sass_url)
+    saas_word, saas_url, purchase_saas_url = generatr.generate()
+    render_result = render_template(
+        "template.html",
+        saas_word=saas_word,
+        saas_url=saas_url,
+        purchase_saas_url=purchase_saas_url,
+    )
     return render_result
 
-@app.route('/<word>/')
+
+@app.route("/<word>/")
 def word(word: str):
-    sass_word, sass_url, purchase_sass_url = generatr.generate(word)
-    render_result = render_template('template.html', sass_word=sass_word, sass_url=sass_url, purchase_sass_url=purchase_sass_url)
+    saas_word, saas_url, purchase_saas_url = generatr.generate(word)
+    render_result = render_template(
+        "template.html",
+        saas_word=saas_word,
+        saas_url=saas_url,
+        purchase_saas_url=purchase_saas_url,
+    )
     return render_result
 
-@app.route('/api/word/')
+
+@app.route("/api/word/")
 def get_word():
     result = {}
-    result['sass_word'], result['sass_url'], result['purchase_sass_url'] = generatr.generate()
+    result["saas_word"], result["saas_url"], result["purchase_saas_url"] = (
+        generatr.generate()
+    )
     return result

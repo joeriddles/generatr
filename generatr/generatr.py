@@ -1,54 +1,55 @@
 from __future__ import annotations
+
 import random
 from typing import Tuple
 
-from generatr.utils.files import ALL_WORDS_PATH, SASS_WORDS_PATH, read_file, write_file, file_exists
+from generatr.utils.files import (
+    ALL_WORDS_PATH,
+    SAAS_WORDS_PATH,
+    file_exists,
+    read_file,
+    write_file,
+)
 
-
-SASS_ENDINGS = ('ar', 'er', 'ir', 'or', 'ur')
-DOMAIN_REGISTRAR_URL_PREFIX = 'https://porkbun.com/checkout/search?q='
+SAAS_ENDINGS = ("ar", "er", "ir", "or", "ur")
+DOMAIN_REGISTRAR_URL_PREFIX = "https://porkbun.com/checkout/search?q="
 
 
 class Generatr:
-    sass_words: list[str] = []
+    saas_words: list[str] = []
 
     def __init__(self, regenerate: bool = False):  # TODO: revert to True
-        if regenerate or not file_exists(SASS_WORDS_PATH):
-            sass_words = self._generate_sass_file()
+        if regenerate or not file_exists(SAAS_WORDS_PATH):
+            saas_words = self._generate_saas_file()
         else:
-            sass_words = read_file(SASS_WORDS_PATH)
-        self.sass_words = sass_words            
+            saas_words = read_file(SAAS_WORDS_PATH)
+        self.saas_words = saas_words
 
     def get_random_word(self, words: list[str]) -> str:
         return random.choice(words)
 
-    def generate_sass_word(self, word: str) -> str:
-        while word.endswith(('ar', 'er', 'ir', 'or', 'ur')):
-            word = word[:-2] + 'r'
+    def generate_saas_word(self, word: str) -> str:
+        while word.endswith(("ar", "er", "ir", "or", "ur")):
+            word = word[:-2] + "r"
         return word
 
-    def generate_sass_url(self, sass_word: str) -> str:
-        sass_url = 'https://' + sass_word + '.io'
-        return sass_url
+    def generate_saas_url(self, saas_word: str) -> str:
+        saas_url = "https://" + saas_word + ".io"
+        return saas_url
 
     def generate(self, word: str = "") -> Tuple[str, str, str]:
-        """Return generated sass word, url, and domain registrar purchase url"""
+        """Return generated saas word, url, and domain registrar purchase url"""
         if not word:
-            word = self.get_random_word(self.sass_words)
-        sass_word = self.generate_sass_word(word)
-        sass_url = self.generate_sass_url(sass_word)
-        purchase_sass_url = DOMAIN_REGISTRAR_URL_PREFIX + sass_word + '.io'
-        return sass_word, sass_url, purchase_sass_url
+            word = self.get_random_word(self.saas_words)
+        saas_word = self.generate_saas_word(word)
+        saas_url = self.generate_saas_url(saas_word)
+        purchase_saas_url = DOMAIN_REGISTRAR_URL_PREFIX + saas_word + ".io"
+        return saas_word, saas_url, purchase_saas_url
 
-    def _generate_sass_file(self) -> list[str]:
+    def _generate_saas_file(self) -> list[str]:
         all_words: list[str] = []
         if file_exists(ALL_WORDS_PATH):
             all_words = read_file(ALL_WORDS_PATH)
-        sass_words = [
-            word
-            for word
-            in all_words
-            if word.endswith(SASS_ENDINGS)
-        ]
-        write_file(SASS_WORDS_PATH, sass_words)
-        return sass_words
+        saas_words = [word for word in all_words if word.endswith(SAAS_ENDINGS)]
+        write_file(SAAS_WORDS_PATH, saas_words)
+        return saas_words
