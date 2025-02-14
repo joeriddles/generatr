@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import dataclasses
 import os
 
 import flask.helpers
@@ -32,32 +33,22 @@ if not app.debug:
 
 @app.route("/")
 def main():
-    saas_word, saas_url, purchase_saas_url = generatr.generate()
-    render_result = render_template(
-        "template.html",
-        saas_word=saas_word,
-        saas_url=saas_url,
-        purchase_saas_url=purchase_saas_url,
-    )
-    return render_result
+    return _render_generate()
 
 
 @app.route("/<word>/")
 def word(word: str):
-    saas_word, saas_url, purchase_saas_url = generatr.generate(word)
-    render_result = render_template(
-        "template.html",
-        saas_word=saas_word,
-        saas_url=saas_url,
-        purchase_saas_url=purchase_saas_url,
-    )
-    return render_result
+    return _render_generate(word)
 
 
 @app.route("/api/word/")
 def get_word():
-    result = {}
-    result["saas_word"], result["saas_url"], result["purchase_saas_url"] = (
-        generatr.generate()
+    return dataclasses.asdict(generatr.generate())
+
+
+def _render_generate(word: str = ""):
+    result = generatr.generate(word)
+    return render_template(
+        "template.html",
+        **dataclasses.asdict(result),
     )
-    return result

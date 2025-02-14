@@ -7,7 +7,7 @@ TOP_DIR = os.path.abspath(
 )
 ALL_WORDS_PATH = os.path.join(TOP_DIR, "data", "words_alpha.txt")
 SAAS_WORDS_PATH = os.path.join(TOP_DIR, "data", "saas_words.txt")
-
+PORKBUN_PRICING_PATH = os.path.join(TOP_DIR, "data", "porkbun_pricing.txt")
 
 def file_exists(filepath: str, use_top_dir: bool = False) -> bool:
     filepath = _check_top_dir(filepath, use_top_dir)

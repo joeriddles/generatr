@@ -24,22 +24,22 @@
     <div class="container-fluid" style="text-align: center;">
         <div class="saas-container" class="align-middle">
             <h1 id="saas-word">
-                {{ saas_word }}
+                {{ word }}
             </h1>
-            <a id="saas-url" href="{{ saas_url }}" target="_blank">
+            <a id="saas-url" href="{{ url }}" target="_blank">
                 <b>
                     <span id="saas-url-value">
-                        {{ saas_url }}
+                        {{ url }}
                     </span>
                 </b>
             </a>
             <br>
-            <a id="purchase-saas-url" href="{{ purchase_saas_url }}" target="_blank">
-                <b>Buy this domain 💸</b>
+            <a id="purchase-saas-url" href="{{ url }}" target="_blank">
+                <strong>Buy this domain for <span id="price">{% if price %}${{ price.registration }}{% else %}💸{% endif %}</span></strong>
             </a>
             <br>
             <button id="reload-btn" class="reload-btn" onclick="get_word()" ontouchstart="">Generate</button>
-            <ul id="previous-saas"></ul>
+            <ul id="previous-saas" class="history"></ul>
         </div>
     </div>
 

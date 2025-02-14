@@ -16,6 +16,7 @@ FLASK_APP=app.py FLASK_ENV=development FLASK_DEBUG=0 python -m flask run --no-de
 
 Ideas for future features:
 - [x] Display history of generated names
+- [x] Show price of domain
+- [ ] Check for [Wordnik API key](https://www.wordnik.com/users/joeriddles/API)
 - [ ] Multiple domain registrar links
-- [ ] Show price of domain
 - [ ] Monetization links?

@@ -40,3 +40,8 @@ body {
   box-shadow: 0px 0px 1px 0px #aca7a7;
   transform: scale(0.98);
 }
+
+.history {
+  background-color: #01010111;
+  border-radius: 16px;
+}
