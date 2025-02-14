@@ -13,8 +13,14 @@ function get_word() {
             const previousWord = saasWord.innerText
             const previousUrl = saasUrl.href
 
-            const { word, url, purchase_url, price } = jsonResponse;
-            saasWord.innerHTML = word;
+            const { word, saas_word, url, purchase_url, price } = jsonResponse;
+            
+            const newWordEl = document.createElement("dfn")
+            newWordEl.innerText = saas_word
+            newWordEl.title = word
+            saasWord.innerHTML = ''
+            saasWord.appendChild(newWordEl)
+            
             saasUrl.href = url;
             saasUrlValue.innerHTML = url;
             purchaseSaasUrl.href = purchase_url
@@ -24,6 +30,7 @@ function get_word() {
             const previousLink = document.createElement("a")
             previousLink.href = previousUrl
             previousLink.innerText = previousWord
+            previousLink.target = '_blank'
             previousLi.appendChild(previousLink)
             previousSaas.appendChild(previousLi)
         });

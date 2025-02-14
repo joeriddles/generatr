@@ -31,6 +31,7 @@ class PorkbunPrice:
 @dataclasses.dataclass
 class GeneratrResult:
     word: str
+    saas_word: str
     url: str
     purchase_url: str
     price: PorkbunPrice | None
@@ -40,7 +41,7 @@ class Generatr:
     saas_words: list[str] = []
     _pricing: dict[str, PorkbunPrice] = {}
 
-    def __init__(self, regenerate_words: bool = False, get_pricing: bool = True):
+    def __init__(self, regenerate_words: bool = False, get_pricing: bool = False):
         if regenerate_words or not file_exists(SAAS_WORDS_PATH):
             saas_words = self._generate_saas_file()
         else:
@@ -89,7 +90,7 @@ class Generatr:
         saas_url = self.generate_saas_url(saas_word)
         price = self._pricing.get("io", None)
         purchase_saas_url = DOMAIN_REGISTRAR_URL_PREFIX + saas_word + ".io"
-        return GeneratrResult(saas_word, saas_url, purchase_saas_url, price)
+        return GeneratrResult(word, saas_word, saas_url, purchase_saas_url, price)
 
     def _generate_saas_file(self) -> list[str]:
         all_words: list[str] = []
